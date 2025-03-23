@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 const EditNote = () => {
     const [judul, setJudul] = useState("");
@@ -15,7 +16,7 @@ const EditNote = () => {
     const updateNote = async (e) =>{
         e.preventDefault();
         try{
-            await axios.patch(`http://localhost:3000/note/${id}`,{
+            await axios.patch(`${BASE_URL}/note/${id}`,{
                 judul,
                 deskripsi
             });
@@ -26,7 +27,7 @@ const EditNote = () => {
     }
 
     const getNoteById = async () =>{
-        const response = await axios.get(`http://localhost:3000/note/${id}`);
+        const response = await axios.get(`${BASE_URL}/note/${id}`);
         setJudul(response.data.judul);
         setDeskripsi(response.data.deskripsi);
     }
