@@ -1,0 +1,25 @@
+GET http://localhost:3000/note
+
+###
+GET http://localhost:3000/note/1
+
+###
+POST  http://localhost:3000/note
+Content-Type: application/json
+
+{ 
+    "judul": "post new",
+    "deskripsi": "tes untuk menambahkan data"
+}
+
+###
+PATCH  http://localhost:3000/note/1
+Content-Type: application/json
+
+{ 
+    "judul": "Update",
+    "deskripsi": "tes untuk update data"
+}
+
+###
+DELETE   http://localhost:3000/note/1
